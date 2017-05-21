@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Anasayfa</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;   
+            }
+            #wrapper{
+                margin: auto;
+                width: 1800px;
+                border-color:black;
+                border-style:solid;
+                height: 950px;
+                background-color: white;
+            }
+            header{
+                width: 1800px;
+                height:50px;
+                border-style: dashed;
+                border-color: black;
+                background-color: darkgray;       
+            }          
+            nav{
+                width: 1800px;
+                height:40px;
+                border-style: dashed;
+                background-color: dimgray;
+                border-color: black;
+            }
+            .yazilarr{
+                width:200px;
+                height:40px;
+                font-family:Verdana;
+                font-size:15px;
+                font-style:normal;
+                color:white;
+                font-weight:normal;
+                text-transform:uppercase;
+                text-align:center;
+                float:left;
+                padding-top:10px;
+                padding-right:30px;
+            }
+            section{
+                width: 1800px;
+                height: 830px;
+                border-color: black;
+                border-style: dashed;
+                background-image: url("../insaat.gif");                   
+            }
+            .giris-yap{
+                height: 100px;
+                position:absolute;
+                left: 250px;
+                top: 50px;
+                margin: 130px auto;
+                width: 320px;
+                padding:50px 50px 50px;
+                border-bottom: 30px solid #006699;
+                border-radius: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                background-image: -webkit-gradient(linear, right top, right bottom, from(#999999), to(#999999));
+                opacity: 2.0;
+            } 
+            .tablo{
+                font-size: 20px;
+                height: 100px;
+            }
+            .kayit-yap{
+                height: 200px;
+                position:absolute;
+                left: 1200px;
+                top: 50px;
+                margin: 130px auto;
+                width: 320px;
+                padding:50px 50px 50px;
+                border-bottom: 30px solid #006699;
+                border-radius: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                background-image: -webkit-gradient(linear, right top, right bottom, from(#999999), to(#999999));
+                opacity: 2.0;               
+            }
+            .tablom{
+                font-size: 20px;
+                height: 100px;              
+            }
+            footer{
+                width: 1800px;
+                height:20px;
+                border-color: black;
+                border-style: dashed;
+                background-color:darkgray;
+            }
+            #yazi{
+                color: black;
+                font-size: large;
+                font-weight: bold;
+                font-style: normal;
+                text-transform: uppercase;
+                text-align: center;
+                word-spacing: 10px;
+            }
+            #sonyazi{
+                font-family:Verdana;
+                font-size:medium;
+                font-style:normal;
+                color:black;
+                font-weight:bolder;
+                text-align:center;
+
+            }
+        </style>
+    </h:head>
+    <!--BODY-->
+    <h:body>
+        <div id="wrapper">
+            <!--PAGE HEADER-->
+            <header>
+                <br></br>           
+                <center>
+                    <div id="yazi">
+                        <b><strong>İNŞAATTA MALİYET HESABI</strong></b>
+                    </div>
+                </center>
+            </header>
+            <!--/PAGE HEADER-->
+            <!--PAGE NAV-->
+            <nav>
+                <center>           
+                    <table>
+                        <tr>
+                            <td>           
+                                <div class="yazilarr">
+                                    <strong><b><big><span>Anasayfa</span></big></b></strong>
+                                </div>           
+                            </td>
+                            <td>            
+                                <div class="yazilarr">
+                                    <strong><b><big><span>Hesapla</span></big></b></strong>
+                                </div>           
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </nav>
+            <!--PAGE NAV-->
+            <!--PAGE SECTİON-->
+            <section>
+                <h:form class="giris-yap">
+                    <center>
+                        <table class="tablo">
+                            <tr>
+                                <td> Email </td>
+                                <td>
+                                    <h:inputText value="#{uyelerBean.kullanici.email}" />                   
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Password  </td>
+                                <td>
+                                    <h:inputSecret value="#{uyelerBean.kullanici.sifre}"/>                  
+                                </td>
+                            </tr>
+                        </table>
+                        <table>   
+                            <tr>
+                                <td>
+
+                                </td>
+                                <td>                     
+                                    <h:commandButton value="Giriş" style=" color: #F9DDD3; background-color: #006699" action="#{uyelerBean.giris()}" />
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </h:form>
+                <h:form class="kayit-yap">
+                    <center>
+                        <table class="tablom">
+
+                            <tr>
+                                <td> Name </td>
+                                <td>
+                                    <h:inputText value="#{uyelerBean.kullanici.ad}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Surname </td>
+                                <td>
+                                    <h:inputText value="#{uyelerBean.kullanici.soyad}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Job </td>
+                                <td>
+                                    <h:inputText value="#{uyelerBean.kullanici.meslek}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> E-mail </td>
+                                <td>
+                                    <h:inputText value="#{uyelerBean.kullanici.email}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> Password </td>
+                                <td>
+                                    <h:inputSecret value="#{uyelerBean.kullanici.sifre}"/>
+                                </td>
+                            </tr>
+                            <br></br>
+                            <br></br>
+                            <table>   
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <h:commandButton value="Üye Ol " style="color: #F9DDD3; background-color: #006699" action="#{uyelerBean.kullanicikaydet()}"  />
+                                    </td>                         
+                                </tr>
+                            </table>
+                        </table>
+                    </center>
+                </h:form>         
+            </section>   
+            <!--/PAGE SECTİON-->
+            <!--PAGE FOOTER-->
+            <footer>                
+                <center>
+                    <div id="sonyazi"><span id="sonyazi">2015-2016 &copy; İnşaatta Maliyet Hesabı | Tüm hakları saklıdır.</span></div> 
+                </center>
+            </footer>
+            <!--PAGE FOOTER-->
+        </div>
+    </h:body>
+    <!--/BODY-->
+</html>
+
+

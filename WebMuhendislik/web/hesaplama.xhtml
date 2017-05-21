@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Hesaplama</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;    
+            }
+            #wrapper{
+                margin: auto;
+                width: 1800px;
+                border-color:black;
+                border-style:solid;
+                height: 950px;
+                background-color: white;
+            }
+            header{
+                width: 1800px;
+                height:50px;
+                border-style: dashed;
+                border-color: black;
+                background-color: darkgray;       
+            }          
+            nav{
+                width: 1800px;
+                height:40px;
+                border-style: dashed;
+                background-color: dimgray;
+                border-color: black;
+            }
+            .yazilarr{
+                width:200px;
+                height:40px;
+                font-family:Verdana;
+                font-size:15px;
+                font-style:normal;
+                color:white;
+                font-weight:normal;
+                text-transform:uppercase;
+                text-align:center;
+                float:left;
+                padding-top:10px;
+                padding-right:30px;
+            }
+            section{
+                width: 1800px;
+                height: 830px;
+                border-color: black;
+                border-style: dashed;
+                background-image: url("../insaat.gif");        
+            }
+            footer{
+                width: 1800px;
+                height:20px;
+                border-color: black;
+                border-style: dashed;
+                background-color:darkgray;
+            }
+            #yazi{
+                color: black;
+                font-size: large;
+                font-weight: bold;
+                font-style: normal;
+                text-transform: uppercase;
+                text-align: center;
+                word-spacing: 10px;
+            }
+            #sonyazi{
+                font-family:Verdana;
+                font-size:medium;
+                font-style:normal;
+                color:black;
+                font-weight:bolder;
+                text-align:center;          
+            }
+            .ozel{
+                height: 700px;
+                position:absolute;
+                left: 150px;
+                top: 10px;
+                margin: 130px auto;
+                width: 500px;
+                padding:10px 20px 20px 10px;
+                border-bottom: 30px solid #006699;
+                border-radius: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                background-image: -webkit-gradient(linear, right top, right bottom, from(#999999), to(#999999));
+                opacity: 2.0;               
+            }
+            .tablom{
+                font-size: 20px;
+                height: 100px;              
+            }
+            .genel{
+                height: 180px;
+                position:absolute;
+                left: 1000px;
+                top: 10px;
+                margin: 130px auto;
+                width: 500px;
+                padding:50px 50px 50px;
+                border-bottom: 30px solid #006699;
+                border-radius: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                background-image: -webkit-gradient(linear, right top, right bottom, from(#999999), to(#999999));
+                opacity: 2.0;                
+            }
+            .tablo{
+                font-size: 20px;
+                height: 100px;               
+            }
+            #myCanvass{
+                height: 350px;
+                position:absolute;
+                left: 1000px;
+                top: 400px;
+                margin: 60px auto;
+                width: 500px;
+                padding:50px 50px 50px;
+                border-bottom: 30px solid #006699;
+                border-radius: 20px;
+                -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                box-shadow: 0 1px 5px rgba(0, 0, 0, 1);
+                background-image: -webkit-gradient(linear, right top, right bottom, from(#999999), to(#999999));
+                opacity: 2.0;               
+            }          
+            #grfyazi{
+                font-family: verdana;
+                font-size: 12px;
+                color:black;
+                padding-left: 50px;
+                word-spacing: 50px;     
+            }
+        </style>
+        <script>
+            /* JAVASCRİPT İLE HESAPLAMA ISLEMLERI */
+            function hesapla(ozelform)
+            {
+                var s1 = parseFloat(ozelform.betonarme.value);
+                var s2 = parseFloat(ozelform.duvarlar.value);
+                var s3 = parseFloat(ozelform.siva.value);
+                var s4 = parseFloat(ozelform.boya.value);
+                var s5 = parseFloat(ozelform.kaplama.value);
+                var s6 = parseFloat(ozelform.cephe.value);
+                var s7 = parseFloat(ozelform.cati.value);
+                var s8 = parseFloat(ozelform.mutfak.value);
+                var s9 = parseFloat(ozelform.pencere.value);
+                var s10 = parseFloat(ozelform.isi.value);
+                var s11 = parseFloat(ozelform.borulama.value);
+                var s12 = parseFloat(ozelform.radyator.value);
+                var s13 = parseFloat(ozelform.vitrifiye.value);
+                var s14 = parseFloat(ozelform.akim.value);
+                var s15 = parseFloat(ozelform.pano.value);
+                var maliyet1 = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9;
+                ozelform.maliyet1.value = maliyet1;
+                var maliyet2 = s10 + s11 + s12 + s13 + s14 + s15;
+                ozelform.maliyet2.value = maliyet2;
+                var sonuc = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9 + s10 + s11 + s12 + s13 + s14 + s15;
+                ozelform.sonuc.value = sonuc;
+
+            }
+            function genel(genelform)
+            {
+                var s16 = parseFloat(genelform.kat.value);
+                var s17 = parseFloat(genelform.yasam.value);
+                var s18 = parseFloat(genelform.kazi.value);
+                var s19 = parseFloat(ozelform.sonuc.value);
+                var s20 = parseFloat(genelform.daire.value);
+                var hesap = ((s20) * (s19) * ((s17 / 100) * s16)) + s18;
+                genelform.genelsonuc.value = hesap;
+            }
+        </script> 
+    </h:head>
+    <!--BODY-->
+    <h:body>
+        <div id="wrapper">
+            <!--PAGE HEADER-->
+            <header>
+                <br></br>           
+                <center>
+                    <div id="yazi">
+                        <b><strong>İNŞAATTA MALİYET HESABI</strong></b>
+                    </div>
+                </center>               
+            </header>
+            <!--/PAGE HEADER-->
+            <!--PAGE NAV-->
+            <nav>
+                <center>           
+                    <table>
+                        <tr>
+                            <td>          
+                                <div class="yazilarr">
+                                    <strong><b><big><span>Anasayfa</span></big></b></strong>
+                                </div>        
+                            </td>
+                            <td>           
+                                <div class="yazilarr">
+                                    <strong><b><big><span>Hesapla</span></big></b></strong>
+                                </div>            
+                            </td>
+                        </tr>
+                    </table>
+                </center>               
+            </nav>
+            <!--PAGE NAV-->
+            <!--PAGE SECTION-->
+            <section>    
+                <!--FORM OZEL ISLER-->
+                <form class="ozel" name="ozelform" onsubmit="return validateForm()" method="post" >
+                    <table class="tablom">
+                        <tr>
+                            <td><b><strong>İNŞAAT ve MİMARİ İŞLER</strong></b></td>
+                        </tr>
+                        <tr>
+                            <td> Betonarme Karkas(TL): </td>
+                            <td><input type="text" name="betonarme" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> İç ve Dış Duvarlar(TL): </td>
+                            <td><input type="text" name="duvarlar" maxlength="20" ></input></td>
+                        </tr>
+                        <tr>
+                            <td> Sıva ve Şap İşleri(TL): </td>
+                            <td><input type="text" name="siva" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Boya İşleri(TL): </td>
+                            <td><input type="text" name="boya" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Kaplama İşleri(TL): </td>
+                            <td><input type="text" name="kaplama" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Cephe İskele ve Kaplaması(TL): </td>
+                            <td><input type="text" name="cephe" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Çatı Konstrüksiyon ve Kaplaması(TL): </td>
+                            <td><input type="text" name="cati" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Mutfak Tezgah ve Dolapları(TL): </td>
+                            <td><input type="text" name="mutfak" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Pencere Kapı Doğramaları(TL): </td>
+                            <td><input type="text" name="pencere" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="Hesapla" onclick="hesapla(this.form)"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Maliyet: </td>
+                            <td><input type="text" name="maliyet1" maxlength="20"></input></td>
+                        </tr>
+                        <br></br>
+                        <br></br>
+                        <tr>
+                            <td><b><strong>MEKANİK ve ELEKTRİK TESİSAT İŞLERİ</strong></b></td>
+                        </tr>
+                        <tr>
+                            <td> Isı Merkezi Ekipmanı(TL): </td>
+                            <td><input type="text" name="isi" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Sıhhi Tesisat ve Isıtma Tesisatı Borulama(TL): </td>
+                            <td><input type="text" name="borulama" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Radyatörler(TL): </td>
+                            <td><input type="text" name="radyator" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Vitrifiye Malzeme ve Armatürler(TL): </td>
+                            <td><input type="text" name="vitrifiye" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Kuvvetli Akım / Zayıf Akım İşleri(TL): </td>
+                            <td><input type="text" name="akim" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Pano, Tablo, Anahtar ve Prizler(TL): </td>
+                            <td><input type="text" name="pano" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="Hesapla" onclick="hesapla(this.form)"></input></td>
+                        </tr>
+                        <tr>
+                            <td> Maliyet: </td>
+                            <td><input type="text" name="maliyet2" maxlength="20"></input></td>
+                        </tr>
+
+                        <tr>
+                            <td>Toplam Maliyet :</td>
+                            <td><input type="text" name="sonuc" maxlength="20"></input></td>
+                        </tr>
+                    </table>
+                </form>
+                <!--/FORM OZEL ISLER-->
+                <!--FORM GENEL ISLER-->
+                <form class="genel" name="genelform" onsubmit="return myfunction()" method="post" >
+                    <table class="tablo">
+                        <tr>
+                            <td><b><strong>GENEL İŞLER</strong></b></td>
+                        </tr>
+                        <tr>
+                            <td>Kat Sayısı :</td>
+                            <td><input type="text" name="kat" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Katta daire sayısı :</td>
+                            <td><input type="text" name="daire" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Toplam Yaşam Alanını Giriniz(m<sup>2</sup>) :</td>
+                            <td><input type="text" name="yasam" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Kazı İşleri :</td>
+                            <td><input type="text" name="kazi" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="Hesapla" onclick="genel(this.form)"></input></td>
+                        </tr>
+                        <tr>
+                            <td>Genel Maliyet :</td>
+                            <td><input type="text" name="genelsonuc" maxlength="20"></input></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="Grafik Çiz" onclick="ciz()"></input></td>
+                        </tr>
+                    </table>
+                </form>
+                <!--/FORM GENEL ISLER-->
+            </section>
+            <!--/ PAGE SECTION-->
+            <!--PAGE FOOTER-->
+            <footer>
+                <center>
+                    <div id="sonyazi"><span id="sonyazi">2015-2016 &copy; İnşaatta Maliyet Hesabı | Tüm hakları saklıdır.</span></div> 
+                </center>
+            </footer>
+            <!--/PAGE FOOTER-->
+        </div>
+        <div id="myCanvass">
+            <canvas id="myCanvas" width="500" height="390"
+                    style="border:5px solid #000000;">
+            </canvas>
+            <div id="grfyazi"><span><b>İMİMlyt     METİMlyt     TopMlyt     GnlMlyt</b></span></div>
+        </div>
+        <script>
+            /* GRAFIK CIZIM */
+            function ciz() {
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                var x = parseInt(ozelform.sonuc.value);
+                var y = parseInt(genelform.genelsonuc.value);
+                var a = parseInt(ozelform.maliyet1.value);
+                var b = parseInt(ozelform.maliyet2.value);
+                var c = parseInt(a / 1000);
+                var d = parseInt(b / 1000);
+                var z = parseInt(x / 1000);
+                var v = parseInt(y / 10000) + 200;
+                ctx.fillStyle = "#FF0000";
+                ctx.fillRect(50, 390 - c, 50, c);
+                ctx.fillRect(160, 390 - d, 50, d);
+                ctx.fillRect(270, 390 - z, 50, z);
+                ctx.fillRect(380, 390 - v, 50, v);
+                ctx.font = "20px Arial";
+                ctx.fillText(a, 50, 390 - c);
+                ctx.fillText(b, 160, 390 - d);
+                ctx.fillText(x, 270, 390 - z);
+                ctx.fillText(y, 380, 390 - v);
+
+            }
+        </script>
+    </h:body>
+    <!--BODY-->
+</html>
+
